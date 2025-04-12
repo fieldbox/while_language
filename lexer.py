@@ -73,15 +73,12 @@ class Lexer:
     # Lists all keywords and their associated token types.
     _keywords = {"ff": Token.Type.FF,
                  "tt": Token.Type.TT,
-                 ":=": Token.Type.ASSIGNMENT,
                  "skip": Token.Type.SKIP,
                  "if": Token.Type.IF,
                  "then": Token.Type.THEN,
                  "else": Token.Type.ELSE,
                  "while": Token.Type.WHILE,
-                 "do": Token.Type.DO,
-                 "<=": Token.Type.LESS_OR_EQUAL,
-                 ">=": Token.Type.GREATER_OR_EQUAL}
+                 "do": Token.Type.DO}
 
     # Lists all operators that are two characters or longer and their
     # associated token types.
@@ -204,7 +201,7 @@ class Lexer:
                     return token
 
         # Match long operator tokens
-        for key, value in self._keywords.items():
+        for key, value in self._long_operators.items():
             if self._char == key[0]:
                 token = self._match_long_operator(key, value)
                 if token is not False:
