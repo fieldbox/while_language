@@ -47,6 +47,7 @@ class Token:
         EOF = 23
         LEFT_BRACKET = 24
         RIGHT_BRACKET = 25
+        END = 26
 
     def __init__(self, value, token_type: Type) -> None:
         """Assigns value and token type from input."""
@@ -78,7 +79,8 @@ class Lexer:
                  "then": Token.Type.THEN,
                  "else": Token.Type.ELSE,
                  "while": Token.Type.WHILE,
-                 "do": Token.Type.DO}
+                 "do": Token.Type.DO,
+                 "end": Token.Type.END}
 
     # Lists all operators that are two characters or longer and their
     # associated token types.
