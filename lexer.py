@@ -146,9 +146,14 @@ class Lexer:
         next_chars = self._next_chars(length + 1)
 
         # If this string starts with the keyword, and either contains
-        # only the keyword or ends in whitespace...
+        # only the keyword or ends in whitespace or a semicolon...
         if (next_chars[:length] == keyword and
-           (len(next_chars) == length or next_chars[length].isspace())):
+           (len(next_chars) == length or next_chars[length].isspace()
+           or next_chars[length] == ";")):
+
+            # Move the lexer back by one character, to not consume the
+            # semicolon/whitespace after the keyword
+            self._previous_chars(1)
 
             # Return the token corresponding with the keyword.
             return Token(keyword, token_type)
