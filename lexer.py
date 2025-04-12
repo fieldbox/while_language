@@ -3,11 +3,12 @@
 Classes:
 Token -- Describes the tokens returned by the lexer.
 Lexer -- Describes the lexer object, which takes in a WHILE program and
-can return tokens from that program one-by-one"""
+can return tokens from that program one-by-one
+"""
 
 from enum import Enum
 
-class Token():
+class Token:
     """Describes tokens that will be returned by the lexer.
     Classes:
     Type -- Describes each type of token in the WHILE language.
@@ -60,7 +61,7 @@ class Token():
         """Returns the type of the token."""
         return self._token_type
 
-class Lexer():
+class Lexer:
     """Describes the lexer, which takes in a WHILE program as input,
     and outputs the tokens from that program one-by-one using the next_token() method.
 
